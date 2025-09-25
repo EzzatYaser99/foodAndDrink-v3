@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2be8fbec-ab54-4077-84e1-99cb18e537f5" name="Changes" comment="Add Spring Web dependency">
+    <list default="true" id="2be8fbec-ab54-4077-84e1-99cb18e537f5" name="Changes" comment="update gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/back/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +144,7 @@
       <workItem from="1758804253585" duration="752000" />
       <workItem from="1758805020297" duration="451000" />
       <workItem from="1758805563289" duration="44000" />
-      <workItem from="1758805619652" duration="1794000" />
+      <workItem from="1758805619652" duration="1848000" />
     </task>
     <task id="LOCAL؜-٠٠٠٠١" summary="create modules back ,front">
       <option name="closed" value="true" />
@@ -170,7 +170,15 @@
       <option name="project" value="LOCAL؜" />
       <updated>1758807109127</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL؜-٠٠٠٠٤" summary="update gitignore">
+      <option name="closed" value="true" />
+      <created>1758807443901</created>
+      <option name="number" value="٠٠٠٠٤" />
+      <option name="presentableId" value="LOCAL؜-٠٠٠٠٤" />
+      <option name="project" value="LOCAL؜" />
+      <updated>1758807443901</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,6 +199,7 @@
     <MESSAGE value="create modules back ,front" />
     <MESSAGE value="complete installation" />
     <MESSAGE value="Add Spring Web dependency" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Spring Web dependency" />
+    <MESSAGE value="update gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="update gitignore" />
   </component>
 </project>
