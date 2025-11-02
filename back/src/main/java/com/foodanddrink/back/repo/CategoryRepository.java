@@ -1,4 +1,7 @@
 package com.foodanddrink.back.repo;
 
-public interface CateogryRepository {
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface CategoryRepository {
 }
