@@ -1,4 +1,5 @@
 package com.foodanddrink.back.entity;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,9 +13,12 @@ public class BaseEntity {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long id;
+    private Long id;
 
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "name_en")
+    private String nameEN;
+
+    @Column(name = "name_ar")
+    private String nameAR;
 }
