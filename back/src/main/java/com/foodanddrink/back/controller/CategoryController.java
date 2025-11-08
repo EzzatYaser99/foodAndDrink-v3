@@ -24,9 +24,9 @@ public class CategoryController {
     }
 
     @GetMapping("allCategories")
-    public ResponseEntity<ApiResponse<List<Category>>> findAllCategory() {
+    public ResponseEntity<ApiResponse<List<Category>>> getAllCategories() {
         try {
-            List<Category> categories = this.categoryService.getAllCategory();
+            List<Category> categories = this.categoryService.getAllCategories();
 
             if (categories.isEmpty()) {
                 return ResponseEntity.status(HttpStatus.NO_CONTENT).body(new ApiResponse<>("No categories found", null, 204));

@@ -18,7 +18,7 @@ public class CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
-    public List<Category> getAllCategory() {
+    public List<Category> getAllCategories() {
         return this.categoryRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
     }
 
