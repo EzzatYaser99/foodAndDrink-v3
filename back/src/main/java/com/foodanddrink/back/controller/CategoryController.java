@@ -3,6 +3,8 @@ package com.foodanddrink.back.controller;
 import com.foodanddrink.back.entity.ApiResponse;
 import com.foodanddrink.back.entity.Category;
 import com.foodanddrink.back.service.CategoryService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/")
+@Tag(name = "categories", description = "Operations related to categories")
 public class CategoryController {
 
     private CategoryService categoryService;
@@ -24,6 +27,7 @@ public class CategoryController {
     }
 
     @GetMapping("allCategories")
+    @Operation(summary = "Get All Categories", description = "Retrieve All Categories")
     public ResponseEntity<ApiResponse<List<Category>>> getAllCategories() {
         try {
             List<Category> categories = this.categoryService.getAllCategories();

@@ -3,6 +3,8 @@ package com.foodanddrink.back.controller;
 import com.foodanddrink.back.entity.ApiResponse;
 import com.foodanddrink.back.entity.Item;
 import com.foodanddrink.back.service.ItemService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/")
+@Tag(name = "Items", description = "Operations related to menu items")
 public class ItemController {
 
     private ItemService itemService;
@@ -23,6 +26,7 @@ public class ItemController {
     }
 
     @GetMapping("allItems")
+    @Operation(summary = "Get All Items", description = "Retrieve All Items")
     public ResponseEntity<ApiResponse<List<Item>>> getAllItems() {
         try {
             List<Item> items = this.itemService.getAllItems();
@@ -37,6 +41,7 @@ public class ItemController {
     }
 
     @GetMapping("category")
+    @Operation(summary = "Get Items By Category Name", description = "Retrieve Items by its Category Name")
     public ResponseEntity<ApiResponse<List<Item>>> getItemsByCategoryName(@RequestParam("keyword") String keyword) {
         try {
             List<Item> items = this.itemService.getItemsByCategoryName(keyword);
@@ -50,6 +55,7 @@ public class ItemController {
         }
     }
     @GetMapping("item")
+    @Operation(summary = "Get items by name", description = "Retrieve a items by its Name")
     public ResponseEntity<ApiResponse<List<Item>>> getItemsByName(@RequestParam("keyword") String keyword) {
         try {
             List<Item> items = this.itemService.getItemsByName(keyword);
@@ -64,6 +70,7 @@ public class ItemController {
     }
 
     @GetMapping("item/{id}")
+    @Operation(summary = "Get item by ID", description = "Retrieve a single item by its ID")
     public ResponseEntity<ApiResponse<Item>> getItemById(@PathVariable("id") Long id) {
         try {
             Optional<Item> selectedItem = this.itemService.getItem(id);
