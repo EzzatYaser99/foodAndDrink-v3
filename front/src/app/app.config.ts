@@ -8,9 +8,13 @@ import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
+import { provideTranslateService } from '@ngx-translate/core';
+import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideHttpClient(),
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
@@ -26,6 +30,14 @@ export const appConfig: ApplicationConfig = {
         },
       },
       ripple: true,
+    }),
+    provideTranslateService({
+      defaultLanguage: 'en',
+    }),
+
+    provideTranslateHttpLoader({
+      prefix: '/i18n/',
+      suffix: '.json',
     }),
   ],
 };
