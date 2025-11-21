@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/api/items")
 @Tag(name = "Items", description = "Operations related to menu items")
 public class ItemController {
 
@@ -25,7 +25,7 @@ public class ItemController {
         this.itemService = itemService;
     }
 
-    @GetMapping("allItems")
+    @GetMapping()
     @Operation(summary = "Get All Items", description = "Retrieve All Items")
     public ResponseEntity<ApiResponse<List<Item>>> getAllItems() {
         try {
@@ -40,7 +40,23 @@ public class ItemController {
         }
     }
 
-    @GetMapping("category")
+    @GetMapping("/{id}")
+    @Operation(summary = "Get item by ID", description = "Retrieve a single item by its ID")
+    public ResponseEntity<ApiResponse<Item>> getItemById(@PathVariable("id") Long id) {
+        try {
+            Optional<Item> selectedItem = this.itemService.getItem(id);
+            if (selectedItem.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.NO_CONTENT).body(new ApiResponse<>("No Items Found", null, 204));
+            }
+            return ResponseEntity.ok(new ApiResponse<>("Items retrieved successfully", selectedItem.get(), 200));
+
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError()
+                    .body(new ApiResponse<>("Error fetching items: " + e.getMessage(), null, 500));
+        }
+    }
+
+    @GetMapping("/category")
     @Operation(summary = "Get Items By Category Name", description = "Retrieve Items by its Category Name")
     public ResponseEntity<ApiResponse<List<Item>>> getItemsByCategoryName(@RequestParam("keyword") String keyword) {
         try {
@@ -54,7 +70,7 @@ public class ItemController {
                     .body(new ApiResponse<>("Error fetching items: " + e.getMessage(), null, 500));
         }
     }
-    @GetMapping("item")
+    @GetMapping("/search")
     @Operation(summary = "Get items by name", description = "Retrieve a items by its Name")
     public ResponseEntity<ApiResponse<List<Item>>> getItemsByName(@RequestParam("keyword") String keyword) {
         try {
@@ -69,20 +85,6 @@ public class ItemController {
         }
     }
 
-    @GetMapping("item/{id}")
-    @Operation(summary = "Get item by ID", description = "Retrieve a single item by its ID")
-    public ResponseEntity<ApiResponse<Item>> getItemById(@PathVariable("id") Long id) {
-        try {
-            Optional<Item> selectedItem = this.itemService.getItem(id);
-            if (selectedItem.isEmpty()) {
-                return ResponseEntity.status(HttpStatus.NO_CONTENT).body(new ApiResponse<>("No Items Found", null, 204));
-            }
-                return ResponseEntity.ok(new ApiResponse<>("Items retrieved successfully", selectedItem.get(), 200));
 
-        } catch (Exception e) {
-            return ResponseEntity.internalServerError()
-                    .body(new ApiResponse<>("Error fetching items: " + e.getMessage(), null, 500));
-        }
-    }
 
 }
