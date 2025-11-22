@@ -19,8 +19,9 @@ target/
 *.iml
 *.ipr
 *.xml
-workspace.xml
-complier.xml
+.idea/workspace.xml
+.idea/compiler.xml
+.idea/sqldialects.xml
 
 
 ### NetBeans ###
