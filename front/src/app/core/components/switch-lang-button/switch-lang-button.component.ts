@@ -27,10 +27,10 @@ export class SwitchLangButtonComponent {
 
   toggleLang() {
     this.isLoading = true;
-    this.currentLang = this.currentLang === Language.EN ? Language.AR : Language.EN;
+    const lang = this.currentLang === Language.EN ? Language.AR : Language.EN;
     setTimeout(() => {
       this.isLoading = false;
-      this._languageService.switchLanguage(this.currentLang);
+      this._languageService.switchLanguage(lang);
     }, 1500);
   }
 }

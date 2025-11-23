@@ -13,26 +13,26 @@ export class LanguageService {
   currentLang: string = this.supportedLanguages[0];
 
   constructor(
-    private readonly translate: TranslateService,
-    @Inject(DOCUMENT) private readonly document: Document,
+    private readonly _translate: TranslateService,
+    @Inject(DOCUMENT) private readonly _document: Document,
   ) {
     const lang = localStorage.getItem('lang') ?? this.currentLang;
     this.language.next(<Language>lang);
-    this.translate.addLangs(this.supportedLanguages);
-    this.translate.setDefaultLang(Language.EN);
+    this._translate.addLangs(this.supportedLanguages);
+    this._translate.setDefaultLang(Language.EN);
   }
   switchLanguage(lang: string): void {
     this.language.next(<Language>lang);
     if (!this.supportedLanguages.includes(lang)) return;
 
-    this.translate.use(lang);
+    this._translate.use(lang);
     localStorage.setItem('lang', lang);
     this.updateDirection(lang);
   }
 
   private updateDirection(lang: string): void {
     const isRTL = lang === Language.AR;
-    this.document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
-    this.document.documentElement.lang = lang;
+    this._document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+    this._document.documentElement.lang = lang;
   }
 }
