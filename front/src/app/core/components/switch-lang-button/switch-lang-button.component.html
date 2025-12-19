@@ -1,11 +1,9 @@
-<div  class="lang theme-{{ theme }}"
-  (click)="toggleLang()" (keydown)="toggleLang()">
+<div class="lang"
+     (click)="toggleLang()" (keydown)="toggleLang()">
   <span>{{ toggleText | uppercase | translate }}</span>
   <span class="mx-1"><i class="fa-solid fa-globe"></i></span>
 </div>
 
-@if (isLoading){
-<div  class="spinner-overlay">
-  <div class="spinner"></div>
-</div>
+@if (isLoading) {
+  <app-spinner></app-spinner>
 }

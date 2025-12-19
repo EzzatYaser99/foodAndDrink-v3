@@ -4,11 +4,12 @@ import { TranslateModule } from '@ngx-translate/core';
 import { DockModule } from 'primeng/dock';
 import { LanguageService } from '../../service/language.service';
 import { Language } from '../../enums/language.enum';
+import { Spinner } from '../spinner/spinner';
 
 @Component({
   selector: 'app-switch-lang-button',
   standalone: true,
-  imports: [TranslateModule, UpperCasePipe, DockModule],
+  imports: [TranslateModule, UpperCasePipe, DockModule, Spinner],
   templateUrl: './switch-lang-button.component.html',
   styleUrl: './switch-lang-button.component.scss',
 })
@@ -18,7 +19,6 @@ export class SwitchLangButtonComponent {
   }
 
   currentLang: string = Language.EN;
-  theme: 'dark' | 'light' = 'dark';
 
   get toggleText() {
     return this.currentLang === Language.EN ? Language.AR : Language.EN;

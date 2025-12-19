@@ -3,35 +3,6 @@
   padding: 8px;
   cursor: pointer;
 
-  &.theme-light {
-    &:hover {
-      background-color: transparent;
-      border-radius: 8px;
-    }
-
-    span {
-      color: white;
-    }
-
-    i {
-      color: white;
-    }
-  }
-
-  &.theme-dark {
-    &:hover {
-      border-radius: 8px;
-    }
-
-    span {
-      color: black;
-    }
-
-    i {
-      color: black;
-    }
-  }
-
   span {
     font-size: 18px;
   }
@@ -39,24 +10,4 @@
   i {
     font-size: 18px;
   }
-}
-
-::ng-deep {
-  .p-tooltip-text {
-    font-size: 13px;
-    text-align: center;
-  }
-}
-
-.spinner-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
 }

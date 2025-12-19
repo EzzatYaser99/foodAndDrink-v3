@@ -1,4 +1,12 @@
 {
-  "HELLO": "Hello",
-  "WELCOME": "Welcome to our system"
+  "generic": {
+    "welcome_to_gusto": "Welcome To Gusto"
+  },
+  "navbar": {
+    "pos": "POS",
+    "transaction": "Transaction",
+    "booking": "Booking",
+    "order_status": "Order Status",
+    "check_dashboard": "Check Dashboard"
+  }
 }

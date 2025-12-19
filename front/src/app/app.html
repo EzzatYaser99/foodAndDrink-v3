@@ -1,4 +1,8 @@
-<router-outlet/>
-<app-switch-lang-button></app-switch-lang-button>
-<h1>{{ 'HELLO' | translate }}</h1>
-<p>{{ 'WELCOME' | translate }}</p>
+@if (isLoading) {
+  <app-spinner [showWelcomeMessage]="true"></app-spinner>
+} @else {
+  <app-navbar></app-navbar>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+}

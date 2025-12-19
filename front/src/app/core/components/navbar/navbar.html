@@ -1,0 +1,24 @@
+<header>
+  <p-menubar [model]="items">
+    <ng-template #start>
+      <img alt="Gusto Logo" class="" [routerLink]="'/main'" width="100px"
+           src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/aad4d0110142211.5fe4b63868daa.jpg">
+    </ng-template>
+    <ng-template #item let-item let-root="root">
+      <a pRipple class="flex items-center p-menubar-item-link"
+         routerLink="/main/{{ item.routerLink }}"
+      >
+        <span [class]="item.icon"></span>
+        <span class="">{{ item.label | translate }}</span>
+      </a>
+    </ng-template>
+    <ng-template #end>
+      <div class="d-flex align-items-center">
+        <app-switch-lang-button></app-switch-lang-button>
+        <i class="fa-solid fa-user"></i>
+        <span class="mx-2">username</span>
+        <p-button icon="fa-solid fa-power-off" (onClick)="logOut()" severity="danger"/>
+      </div>
+    </ng-template>
+  </p-menubar>
+</header>

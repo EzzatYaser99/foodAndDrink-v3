@@ -1,4 +1,12 @@
 {
-  "HELLO": "مرحبا",
-  "WELCOME": "مرحبًا بكم في نظامنا"
+  "generic": {
+    "welcome_to_gusto": "مرحبًا بكم في جوستو"
+  },
+  "navbar": {
+    "pos": "نقطة البيع",
+    "transaction": "المعاملات",
+    "booking": "الحجز",
+    "order_status": "حالة الطلب",
+    "check_dashboard": "لوحة التحكم"
+  }
 }
