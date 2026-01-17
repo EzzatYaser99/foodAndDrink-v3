@@ -1,0 +1,36 @@
+.social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  .content {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      font-size: 20px;
+      -webkit-transition: all 0.2s;
+      -o-transition: all 0.2s;
+      transition: all 0.2s;
+    }
+
+
+    .facebook {
+      color: #0b40ec !important;
+    }
+
+    .whatsapp {
+      color: #86bb46 !important;
+    }
+
+    .instagram {
+      color: #da6502 !important;
+    }
+  }
+}

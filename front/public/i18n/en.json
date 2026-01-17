@@ -1,6 +1,7 @@
 {
   "generic": {
-    "welcome_to_gusto": "Welcome To Gusto"
+    "welcome_to_gusto": "Welcome To Gusto",
+    "gusto": "Gusto"
   },
   "navbar": {
     "pos": "POS",
@@ -8,5 +9,13 @@
     "booking": "Booking",
     "order_status": "Order Status",
     "check_dashboard": "Check Dashboard"
+  },
+  "footer": {
+    "contact_us": "Contact Us",
+    "follow_us": "Follow Us",
+    "gusto_delivers": "Gusto Restaurant is dedicated to delivering exceptional food made from fresh, high-quality ingredients, combining great taste with outstanding service in a comfortable and modern setting.",
+    "opening_days": "Opening Days",
+    "all_right": "© Copyright 2026 ,All Right reserved By ",
+    "distributed": "© Designed & Developed by "
   }
 }

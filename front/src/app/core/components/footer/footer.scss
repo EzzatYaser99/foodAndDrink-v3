@@ -1,0 +1,67 @@
+
+$GreenColor: #7aae3b;
+$box-shadow: 0px 9px 31.3px 0px rgba(82, 146, 39, 0.29);
+
+footer {
+  background-color: rgba(0, 0, 0, 0.90);
+  -webkit-box-shadow: $box-shadow;
+  box-shadow: $box-shadow;
+}
+
+footer .contentOne {
+  text-align: center;
+}
+
+footer .contentOne h2 {
+  color: white;
+  font-size: 28px;
+}
+
+footer .contentOne h2 a {
+  color: white;
+  text-decoration: none;
+}
+
+footer .contentOne li {
+  display: block;
+  margin-top: 10px;
+  color: white;
+  font-size: 15px;
+}
+
+footer .contentOne li a {
+  text-decoration: none;
+  color: white;
+}
+
+footer .contentOne li a:hover {
+  color: $GreenColor;
+}
+
+footer .contentOne p {
+  color: white;
+}
+
+.contentOne a .fa {
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+footer .contentTwo {
+  text-align: center;
+}
+
+.contentTwo p {
+  color: whitesmoke;
+}
+
+.developed-by{
+  a{
+    text-decoration: none;
+  }
+}
+
+.gold-text{
+  color: gold;
+}
