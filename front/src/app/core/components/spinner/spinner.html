@@ -2,11 +2,9 @@
   <div class="loading-spinner">
     <div class="spinner"></div>
     @if (showWelcomeMessage) {
-      <div class="flex-design">
-        <h3>{{ "generic.welcome_to_gusto" | translate }}</h3>
-        <img alt="Gusto Logo"
-             src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/aad4d0110142211.5fe4b63868daa.jpg"
-             style="width: 60px; height:45px"/>
+      <div class="content">
+      <span class="brand-name">{{ "common.welcome_to" | translate }}</span>
+      <span class="brand-name"> {{'common.gusto' | translate }}🍔🍗</span>
       </div>
     }
   </div>
