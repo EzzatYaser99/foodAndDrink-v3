@@ -1,8 +1,12 @@
 @if (isLoading) {
   <app-spinner [showWelcomeMessage]="true"></app-spinner>
 } @else {
-  <app-navbar></app-navbar>
-  <div class="container">
+  <app-navbar [sidebarOpen]="sidebarOpen" (toggleSidebar)="onToggleSidebar()"></app-navbar>
+  <app-sidebar [isOpen]="sidebarOpen"></app-sidebar>
+  @if (sidebarOpen) {
+    <div class="sidebar-overlay" (click)="onToggleSidebar()"></div>
+  }
+  <div class="main-content" [class.sidebar-open]="sidebarOpen">
     <router-outlet></router-outlet>
   </div>
   <app-footer></app-footer>

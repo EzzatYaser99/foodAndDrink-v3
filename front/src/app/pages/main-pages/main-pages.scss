@@ -1,0 +1,22 @@
+@use "public/styles/variables" as vr;
+@use "public/styles/mixins" as mx;
+@use "public/styles/colors" as cv;
+
+.main-content {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: vr.$navbar-height;
+  padding: vr.$spacing-20 vr.$spacing-24;
+  min-height: calc(100vh - #{vr.$navbar-height});
+  background-color: cv.$content-bg;
+  transition: margin-left vr.$transition-base, margin-right vr.$transition-base;
+}
+
+.sidebar-overlay {
+  @include mx.position(fixed, vr.$navbar-height, auto, auto, 0);
+  width: 100%;
+  height: calc(100vh - #{vr.$navbar-height});
+  background-color: cv.$overlay-bg;
+  z-index: vr.$z-overlay;
+  transition: opacity vr.$transition-base, visibility vr.$transition-base;
+}
