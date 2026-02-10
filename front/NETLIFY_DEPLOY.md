@@ -31,6 +31,21 @@ Important:
 
 Save, then trigger a **new deploy**.
 
-## 3. If publish path is wrong
+## 3. If the site is blank white after deploy
 
-If the deploy succeeds but the site is blank, the publish path may differ. After running `npm run build` inside `front`, check the created folder (e.g. `front/dist/...`) and set **Publish directory** in the UI to that path (relative to repo root, e.g. `front/dist/front/browser`), or update `publish` in `netlify.toml` to match.
+1. **Check the Netlify build log**
+   - Go to **Deploys** → click the latest deploy → **Deploy log**.
+   - Confirm the build **succeeds** (no red errors). If the build fails, fix the error (often Node version or missing dependencies).
+   - In the log, find the line like **“Production base: front”** and **“Deploy directory: …”**. The deploy directory should be the folder that contains `index.html` and the built `.js` files (e.g. `front/dist/front/browser` from repo root).
+
+2. **Clear Netlify UI overrides**
+   - In **Build settings**, leave **Base directory** as `front` and **Publish directory** as `dist/front/browser` (or leave Publish **empty** so Netlify uses only `netlify.toml`).
+   - Remove any **URLs** from Base/Package/Publish/Functions. Save and **Trigger deploy** again.
+
+3. **If publish path is wrong**
+   - Publish path is **relative to the base directory**. So with base `front`, the value `dist/front/browser` means Netlify deploys from `front/dist/front/browser`.
+   - If your Angular build puts output somewhere else, run `npm run build` inside `front`, then look at `front/dist/` and set **Publish directory** to that path (e.g. `dist/front/browser`), or update `publish` in `netlify.toml` to match.
+
+4. **Check the browser**
+   - Open the live site → **F12** → **Console**. If you see 404s for `.js` or `i18n/*.json`, the deploy path or redirects are wrong.
+   - If you see script errors, fix those in the app and redeploy.
