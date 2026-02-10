@@ -5,23 +5,26 @@ import { DockModule } from 'primeng/dock';
 import { LanguageService } from '../../service/language.service';
 import { Language } from '../../enums/language.enum';
 import { Spinner } from '../spinner/spinner';
+import { Tooltip } from 'primeng/tooltip';
 
 @Component({
   selector: 'app-switch-lang-button',
   standalone: true,
-  imports: [TranslateModule, UpperCasePipe, DockModule, Spinner],
+  imports: [TranslateModule, UpperCasePipe, DockModule, Spinner, Tooltip],
   templateUrl: './switch-lang-button.component.html',
   styleUrl: './switch-lang-button.component.scss',
 })
 export class SwitchLangButtonComponent {
-  constructor(private readonly _languageService: LanguageService) {
-    this.currentLang = localStorage.getItem('lang') ?? Language.EN;
-  }
-
   currentLang: string = Language.EN;
 
+  constructor(private readonly _languageService: LanguageService) {
+    this._languageService.language.subscribe((language) => {
+      this.currentLang = language;
+    });
+  }
+
   get toggleText() {
-    return this.currentLang === Language.EN ? Language.AR : Language.EN;
+    return this.currentLang === Language.EN ? 'ع ر' : Language.EN;
   }
   isLoading: boolean = false;
 

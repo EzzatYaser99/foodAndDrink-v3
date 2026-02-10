@@ -1,13 +1,29 @@
+@use "public/styles/variables" as vr;
+@use "public/styles/mixins" as mx;
+@use "public/styles/colors" as cv;
+
 .lang {
-  transition: all 0.2s ease-in-out;
-  padding: 8px;
+  transition: all vr.$transition-fast ease-in-out;
+  padding: vr.$padding-8;
   cursor: pointer;
 
+ .bolder-text{
+   font-weight: bold;
+ }
   span {
-    font-size: 18px;
+    font-size: vr.$size-4xl;
+    color: cv.$primary;
+
   }
 
   i {
-    font-size: 18px;
+    font-size: vr.$size-4xl;
+  }
+}
+
+::ng-deep {
+  .p-tooltip-text {
+    font-size: 13px;
+    text-align: center;
   }
 }
