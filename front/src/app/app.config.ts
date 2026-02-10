@@ -32,7 +32,7 @@ export const appConfig: ApplicationConfig = {
       ripple: true,
     }),
     provideTranslateService({
-      defaultLanguage: 'en',
+      fallbackLang: 'en',
     }),
 
     provideTranslateHttpLoader({

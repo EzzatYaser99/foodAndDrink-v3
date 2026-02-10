@@ -2,7 +2,10 @@ import { Routes } from '@angular/router';
 import { authGuard } from './core/guard/auth-guard';
 
 export const routes: Routes = [
-  //  Public pages (outside main)
+  //  Redirect root to login first (order matters: this must be before the '' layout)
+  { path: '', pathMatch: 'full', redirectTo: 'login' },
+
+  //  Public pages (auth layout with login/signup)
   {
     path: '',
     loadComponent: () => import('./pages/auth-layout/auth-layout').then((c) => c.AuthLayout),
@@ -52,7 +55,6 @@ export const routes: Routes = [
     ],
   },
 
-  //  Redirects
-  { path: '', pathMatch: 'full', redirectTo: 'login' },
+  //  Catch-all
   { path: '**', redirectTo: 'login' },
 ];
