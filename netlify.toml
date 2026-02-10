@@ -1,0 +1,20 @@
+# Netlify build config for foodAndDrink-v3 (frontend in "front" subfolder)
+# Use repo-relative paths only. Do not use URLs or absolute paths.
+
+[build]
+  base = "front"
+  command = "npm run build"
+  publish = "dist/front/browser"
+
+# Optional: only if you use Netlify serverless functions
+# [build.environment]
+#   NODE_VERSION = "20"
+
+# SPA: serve index.html for all routes so Angular router works
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Leave Package directory and Functions directory blank in Netlify UI
+# unless you have a specific monorepo/functions setup.
