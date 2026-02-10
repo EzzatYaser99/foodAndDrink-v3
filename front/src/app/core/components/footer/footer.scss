@@ -69,21 +69,21 @@ footer {
         font-size: vr.$size-xxl;
         line-height: 1.6;
         margin-bottom: vr.$margin-32;
-        text-align: left;
+        text-align: center;
       }
 
       .copyright-section {
         p {
           color: cv.$text-inverse;
-          font-size: vr.$size-4xl;
-          margin-bottom: vr.$spacing-8;
+          font-size: vr.$size-3xl;
+          margin-bottom: vr.$margin-8;
           line-height: 1.5;
 
-          .gold-text {
+          .designer-style {
             color: cv.$primary;
             font-weight: 600;
             text-decoration: none;
-            font-size: vr.$size-4xl;
+            font-size: vr.$size-3xl;
           }
         }
     }
@@ -97,7 +97,7 @@ footer {
       li {
         color: cv.$text-inverse;
         font-size: vr.$size-3xl;
-        margin-bottom: vr.$spacing-12;
+        margin-bottom: vr.$margin-12;
         line-height: 1.5;
       }
     }
