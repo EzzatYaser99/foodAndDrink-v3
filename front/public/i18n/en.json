@@ -1,7 +1,8 @@
 {
-  "generic": {
-    "welcome_to_gusto": "Welcome To Gusto",
-    "gusto": "Gusto"
+  "common": {
+    "welcome_to": "Welcome To",
+    "gusto": "Gusto",
+    "change_to_language": " تفيير الي العربية"
   },
   "navbar": {
     "pos": "POS",
@@ -10,12 +11,24 @@
     "order_status": "Order Status",
     "check_dashboard": "Check Dashboard"
   },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "people": "People",
+    "wallet": "Wallet",
+    "food_items": "Food Items",
+    "reviews": "Reviews",
+    "authentication": "Authentication",
+    "settings": "Settings",
+    "support": "Support",
+    "terms_conditions": "Terms & Conditions",
+    "logout": "Logout"
+  },
   "footer": {
     "contact_us": "Contact Us",
     "follow_us": "Follow Us",
     "gusto_delivers": "Gusto Restaurant is dedicated to delivering exceptional food made from fresh, high-quality ingredients, combining great taste with outstanding service in a comfortable and modern setting.",
     "opening_days": "Opening Days",
-    "all_right": "© Copyright 2026 ,All Right reserved By ",
+    "all_right": "© Copyright 2026 ,All Right reserved By Gusto ",
     "distributed": "© Designed & Developed by "
   }
 }

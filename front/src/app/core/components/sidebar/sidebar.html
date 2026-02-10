@@ -1,0 +1,25 @@
+<aside class="sidebar" [class.open]="isOpen">
+  <nav class="sidebar-nav">
+    <div class="sidebar-lang-mobile">
+      <app-switch-lang-button></app-switch-lang-button>
+    </div>
+    <ul class="menu-list">
+      @for (item of sidebarItems; track item.routerLink) {
+        <li>
+          <a
+            pRipple
+            class="menu-item"
+            [routerLink]="'/main/' + item.routerLink"
+            routerLinkActive="active"
+          >
+            <i [class]="item.icon"></i>
+            <span>{{ item.label | translate }}</span>
+          </a>
+        </li>
+      }
+      <li>
+        <p-button icon="pi pi-sign-out" [label]="'sidebar.logout' | translate" (onClick)="logOut()" severity="danger" [text]="true" styleClass="logout-btn"/>
+      </li>
+    </ul>
+  </nav>
+</aside>

@@ -1,0 +1,139 @@
+@use "public/styles/variables" as vr;
+@use "public/styles/mixins" as mx;
+@use "public/styles/colors" as cv;
+
+.sidebar {
+  position: fixed;
+  top: vr.$navbar-height;
+  left: calc(0px - #{vr.$sidebar-width});
+  height: calc(100vh - #{vr.$navbar-height});
+  max-height: calc(100vh - #{vr.$navbar-height});
+  width: vr.$sidebar-width;
+  background-color: cv.$sidebar-bg;
+  box-shadow: vr.$spacing-4 0 vr.$spacing-8 cv.$shadow-light;
+  transition: left vr.$transition-base, right vr.$transition-base;
+  z-index: vr.$z-sidebar;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: vr.$spacing-24;
+  box-sizing: border-box;
+
+  &.open {
+    left: 0;
+  }
+
+  .sidebar-nav {
+    @include mx.display-flex(column, flex-start, stretch);
+    height: 100%;
+    padding: vr.$spacing-16 0 vr.$spacing-24 0;
+
+    .sidebar-lang-mobile {
+      display: none;
+      padding: vr.$spacing-4 vr.$spacing-24;
+      border-bottom: 1px solid cv.$border-subtle;
+      margin-bottom: vr.$spacing-8;
+    }
+
+    @media (max-width: vr.$breakpoint-mobile) {
+      .sidebar-lang-mobile {
+        display: block;
+      }
+      padding: 0 !important;
+    }
+
+    .menu-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex: 1 1 0;
+      min-height: 0;
+
+      li {
+        margin: 0;
+        padding: 0;
+
+        .menu-item {
+          @include mx.display-flex(row, flex-start, center);
+          padding: vr.$padding-12 vr.$spacing-24;
+          color: cv.$text-primary;
+          text-decoration: none;
+          transition: all vr.$transition-fast;
+          cursor: pointer;
+          gap: vr.$spacing-12;
+          border-left: vr.$spacing-4 solid transparent;
+          border-right: none;
+
+          i {
+            font-size: vr.$size-3xl;
+            color: cv.$primary;
+            width: 20px;
+            text-align: center;
+            flex-shrink: 0;
+          }
+
+          span {
+            font-weight: 500;
+            font-size: vr.$size-xxl;
+          }
+
+          &:hover {
+            background-color: cv.$hover-bg;
+          }
+
+          &.active {
+            background-color: cv.$active-bg;
+            border-left-color: cv.$primary;
+            color: cv.$primary;
+
+            i {
+              color: cv.$primary;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// RTL (Arabic) – sidebar on right, slide from right, icon next to text
+:host-context([dir="rtl"]) .sidebar {
+  left: auto !important;
+  right: calc(0px - #{vr.$sidebar-width});
+  box-shadow: -(vr.$spacing-4) 0 vr.$spacing-8 cv.$shadow-light;
+
+  &.open {
+    left: auto !important;
+    right: 0 !important;
+  }
+
+  .menu-item {
+    flex-direction: row-reverse;
+    border-left: none;
+    border-right: vr.$spacing-4 solid transparent;
+  }
+
+  .menu-item.active {
+    border-right-color: cv.$primary;
+    border-left-color: transparent;
+  }
+
+  .logout-item {
+    flex-direction: row-reverse;
+  }
+}
+
+.sidebar-overlay {
+  @include mx.position(fixed, 0, auto, auto, 0);
+  width: 100%;
+  height: 100%;
+  background-color: cv.$overlay-bg;
+  z-index: vr.$z-overlay;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity vr.$transition-base, visibility vr.$transition-base;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}
