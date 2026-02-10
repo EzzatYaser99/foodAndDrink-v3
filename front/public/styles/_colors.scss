@@ -1,0 +1,61 @@
+
+// ---- Backgrounds ----
+$content-bg: #fbfbfb;
+$overlay-bg: rgba(0, 0, 0, 0.5);
+$surface: #ffffff;
+$sidebar-bg: #f8f9fa;
+
+// ---- Brand / Primary (Davur blue) ----
+$primary: #3b82f6;
+$primary-hover: #2563eb;
+$primary-dark: #101e63;
+$primary-tint: rgba(47, 76, 221, 0.1);
+
+// ---- Accents (buttons, highlights, gradients) ----
+$accent-gold: #f7b00f;
+$accent-gold-hover: #f9c70a;
+$accent-purple: #8553ee;
+$accent-orange: #f25521;
+
+// ---- Text ----
+$text-primary: #3d4465;
+$text-secondary: #7e7e7e;
+$text-muted: #6c757d;
+$text-inverse: #ffffff;
+
+// ---- Borders & dividers ----
+$border-default: #eeeeee;
+$border-subtle: rgba(0, 0, 0, 0.08);
+
+// ---- Surfaces (hover/active states) ----
+$hover-bg: rgba(0, 0, 0, 0.05);
+$active-bg: rgba(0, 0, 0, 0.08);
+$shadow-light: rgba(0, 0, 0, 0.1);
+$shadow-medium: rgba(0, 0, 0, 0.3);
+
+// ---- Status ----
+$success: #2bc155;
+$success-hover: #239a43;
+$danger: #f72b50;
+$danger-hover-bg: rgba(247, 43, 80, 0.1);
+$warning: #ff6d4d;
+$info: #2781d5;
+
+// ---- Footer / header ----
+$footer-bg: #212529;
+$top-bar-green: #297f00;
+
+// ---- Social brands ----
+$facebook: #1877f2;
+$whatsapp: #25d366;
+$instagram-gradient: linear-gradient(
+  45deg,
+  #f09433 0%,
+  #e6683c 25%,
+  #dc2743 50%,
+  #cc2366 75%,
+  #bc1888 100%
+);
+
+// ---- Components (spinner, etc.) ----
+$spinner-accent: #2bc155;
