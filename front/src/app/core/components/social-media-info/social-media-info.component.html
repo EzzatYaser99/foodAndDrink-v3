@@ -1,15 +1,15 @@
 <div class="social-media">
   @for (item of socialMediaInfo; track item) {
-    <div class="content">
     <a
       [href]="item.href"
       [pTooltip]="this.lang == 'en' ? item.titleEN : item.titleAR"
       [tooltipPosition]="'bottom'"
       target="_blank"
-      class="zoomin"
+      class="social-link"
     >
-      <i class="{{ item.icon }}"></i>
+      <div class="content" [class]="item.class">
+        <i class="{{ item.icon }}"></i>
+      </div>
     </a>
-    </div>
   }
 </div>

@@ -1,36 +1,43 @@
+@use "public/styles/variables" as vr;
+@use "public/styles/mixins" as mx;
+@use "public/styles/colors" as cv;
+
 .social-media {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+  @include mx.display-flex(row, center, center);
+  gap: vr.$spacing-16;
+  margin-top: vr.$spacing-8;
+
+  .social-link {
+    text-decoration: none;
+  }
 
   .content {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include mx.circle(45px);
+    @include mx.display-flex(row, center, center);
+    cursor: pointer;
+    transition: transform vr.$transition-base, box-shadow vr.$transition-base;
+
+    &:hover {
+      transform: translateY(vr.$spacing-4);
+      box-shadow: 0 vr.$spacing-8 vr.$spacing-12 cv.$shadow-medium;
+    }
 
     i {
-      font-size: 20px;
-      -webkit-transition: all 0.2s;
-      -o-transition: all 0.2s;
-      transition: all 0.2s;
+      font-size: vr.$size-5xl;
+      color: cv.$text-inverse;
+      transition: all vr.$transition-base;
     }
 
-
-    .facebook {
-      color: #0b40ec !important;
+    &.facebook-bg {
+      background-color: cv.$facebook;
     }
 
-    .whatsapp {
-      color: #86bb46 !important;
+    &.whatsapp-bg {
+      background-color: cv.$whatsapp;
     }
 
-    .instagram {
-      color: #da6502 !important;
+    &.instagram-bg {
+      background: cv.$instagram-gradient;
     }
   }
 }
