@@ -1,23 +1,38 @@
 <header>
   <p-menubar [model]="items">
     <ng-template #start>
-      <img alt="Gusto Logo" class="" [routerLink]="'/main'" width="100px"
-           src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/aad4d0110142211.5fe4b63868daa.jpg">
+      <div class="brand-section">
+        <p-button
+          [icon]="sidebarOpen ? 'pi pi-times' : 'pi pi-bars'"
+          [text]="true"
+          severity="secondary"
+          styleClass="hamburger-btn"
+          (onClick)="onToggleSidebar()">
+        </p-button>
+        <span class="brand-name" [routerLink]="'/main'">{{'common.gusto' | translate }}🍔</span>
+      </div>
     </ng-template>
     <ng-template #item let-item let-root="root">
       <a pRipple class="flex items-center p-menubar-item-link"
          routerLink="/main/{{ item.routerLink }}"
+         routerLinkActive="active"
       >
         <span [class]="item.icon"></span>
         <span class="">{{ item.label | translate }}</span>
       </a>
     </ng-template>
     <ng-template #end>
-      <div class="d-flex align-items-center">
+      <div class="user-section">
         <app-switch-lang-button></app-switch-lang-button>
-        <i class="fa-solid fa-user"></i>
-        <span class="mx-2">username</span>
-        <p-button icon="pi pi-sign-out" (onClick)="logOut()" severity="danger"/>
+        <div class="user-info">
+          <div class="user-details">
+            <span class="user-name">{{ userName }}</span>
+            <span class="user-role">{{ userRole }}</span>
+          </div>
+          <div class="profile-picture-container">
+            <img [src]="userAvatar" [alt]="userName" class="profile-picture">
+          </div>
+        </div>
       </div>
     </ng-template>
   </p-menubar>

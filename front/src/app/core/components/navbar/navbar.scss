@@ -1,0 +1,143 @@
+@use "public/styles/variables" as vr;
+@use "public/styles/mixins" as mx;
+@use "public/styles/colors" as cv;
+
+header {
+  @include mx.position(fixed, 0, auto, auto, 0);
+  right: 0;
+  z-index: vr.$z-navbar;
+
+  ::ng-deep {
+    .p-menubar {
+      border: none;
+      border-radius: 0;
+      padding: vr.$spacing-12 vr.$spacing-24;
+      background-color: cv.$surface;
+      box-shadow: 0 vr.$spacing-4 vr.$spacing-8 cv.$shadow-light;
+      height: 60px;
+    }
+
+    .p-menubar-button{
+      display: none;
+    }
+    .p-menubar-root-list {
+      gap: vr.$spacing-8;
+    }
+
+    .p-menubar-item-link {
+      padding: vr.$spacing-12 vr.$spacing-16;
+      border-radius: vr.$border-radius-lg;
+      transition: all vr.$transition-base;
+
+      &:hover {
+        background-color: cv.$hover-bg;
+      }
+
+      &.active {
+        color: cv.$primary;
+        background-color: cv.$primary-tint;
+
+        span:first-child {
+          color: cv.$primary;
+        }
+      }
+
+      span:first-child {
+        margin-right: vr.$spacing-8;
+        font-size: vr.$size-3xl;
+        color: cv.$primary;
+      }
+
+      span:last-child {
+        font-weight: 500;
+        color: cv.$text-secondary;
+      }
+    }
+  }
+
+  .brand-section {
+    @include mx.display-flex(row, flex-start, center);
+    gap: vr.$spacing-16;
+
+    .hamburger-btn {
+      background-color: cv.$primary !important;
+      border: none;
+      color: cv.$text-inverse !important;
+      @include mx.circle(40px);
+
+      &:hover {
+        background-color: cv.$primary-hover !important;
+      }
+
+      ::ng-deep .p-button-icon {
+        color: cv.$text-inverse;
+      }
+    }
+
+    .brand-name {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: cv.$primary-dark;
+      cursor: pointer;
+      text-decoration: none;
+      transition: color vr.$transition-base;
+
+      &:hover {
+        color: cv.$primary;
+      }
+    }
+  }
+
+  .user-section {
+    @include mx.display-flex(row, flex-end, center);
+    gap: vr.$spacing-16;
+
+    @media (max-width: vr.$breakpoint-mobile) {
+      app-switch-lang-button {
+        display: none;
+      }
+    }
+
+    .user-info {
+      @include mx.display-flex(row, flex-end, center);
+      gap: vr.$spacing-16;
+
+      .user-details {
+        @include mx.display-flex(column, flex-end, flex-end);
+
+        .user-name {
+          font-weight: 700;
+          font-size: vr.$size-3xl;
+          color: cv.$text-primary;
+        }
+
+        .user-role {
+          font-size: vr.$size-xxl;
+          color: cv.$text-secondary;
+        }
+      }
+
+      .profile-picture-container {
+        @include mx.circle(54px);
+        position: relative;
+        padding: vr.$spacing-4;
+        background: linear-gradient(135deg, cv.$accent-purple, cv.$primary);
+        @include mx.display-flex(row, center, center);
+
+        .profile-picture {
+          @include mx.circle(48px);
+          object-fit: cover;
+          display: block;
+        }
+      }
+    }
+
+    .logout-btn {
+      color: cv.$danger !important;
+
+      &:hover {
+        background-color: cv.$danger-hover-bg !important;
+      }
+    }
+  }
+}
