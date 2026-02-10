@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LanguageService } from '../../service/language.service';
 import { TranslatePipe } from '@ngx-translate/core';
 import { SocialMediaInfoComponent } from '../social-media-info/social-media-info.component';
+import { Language } from '../../enums/language.enum';
 
 @Component({
   selector: 'app-footer',
@@ -10,7 +11,7 @@ import { SocialMediaInfoComponent } from '../social-media-info/social-media-info
   styleUrl: './footer.scss',
 })
 export class Footer implements OnInit {
-  lang: 'en' | 'ar' = 'en';
+  lang: Language = Language.EN;
   openDays: WorkDays[] = [];
   contactDetailsInfo: ContactDetailsInfo[] = [];
   constructor(private readonly _languageService: LanguageService) {

@@ -1,67 +1,105 @@
-
-$GreenColor: #7aae3b;
-$box-shadow: 0px 9px 31.3px 0px rgba(82, 146, 39, 0.29);
+@use "public/styles/variables" as vr;
+@use "public/styles/mixins" as mx;
+@use "public/styles/colors" as cv;
 
 footer {
-  background-color: rgba(0, 0, 0, 0.90);
-  -webkit-box-shadow: $box-shadow;
-  box-shadow: $box-shadow;
-}
+  background-color: cv.$footer-bg;
+  color: cv.$text-inverse;
+  padding: vr.$spacing-12 vr.$spacing-12;
 
-footer .contentOne {
-  text-align: center;
-}
+      .column-content {
+        text-align: center;
+        padding: vr.$spacing-24 vr.$spacing-12;
 
-footer .contentOne h2 {
-  color: white;
-  font-size: 28px;
-}
+        h2 {
+          color: cv.$text-inverse;
+          font-weight: 700;
+        }
 
-footer .contentOne h2 a {
-  color: white;
-  text-decoration: none;
-}
+        .brand-name {
+          color: cv.$primary;
+          display: inline-block;
+          margin-right: vr.$spacing-12;
+        }
 
-footer .contentOne li {
-  display: block;
-  margin-top: 10px;
-  color: white;
-  font-size: 15px;
-}
+        .follow-us-heading {
+          margin-top: vr.$margin-32;
+          margin-bottom: vr.$spacing-16;
+        }
+      }
 
-footer .contentOne li a {
-  text-decoration: none;
-  color: white;
-}
+    // Contact Us Column
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 vr.$spacing-20 0;
 
-footer .contentOne li a:hover {
-  color: $GreenColor;
-}
+      li {
+        margin-bottom: vr.$spacing-12;
 
-footer .contentOne p {
-  color: white;
-}
+        a {
+          @include mx.display-flex(row, center, center);
+          gap: vr.$spacing-12;
+          color: cv.$text-inverse;
+          text-decoration: none;
+          font-size: vr.$size-3xl;
+          transition: color vr.$transition-base;
 
-.contentOne a .fa {
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  transition: all 0.4s;
-}
+          i {
+            font-size: vr.$size-4xl;
+            color: cv.$text-inverse;
+            width: 20px;
+            text-align: center;
+          }
 
-footer .contentTwo {
-  text-align: center;
-}
+          &:hover {
+            color: cv.$primary;
+          }
+        }
+      }
+    }
 
-.contentTwo p {
-  color: whitesmoke;
-}
+    // Center Column (Brand)
+      .brand-header {
+        margin-bottom: vr.$spacing-20;
+      }
 
-.developed-by{
-  a{
-    text-decoration: none;
-  }
-}
+      .brand-description {
+        color: cv.$text-inverse;
+        font-size: vr.$size-xxl;
+        line-height: 1.6;
+        margin-bottom: vr.$margin-32;
+        text-align: left;
+      }
 
-.gold-text{
-  color: gold;
+      .copyright-section {
+        p {
+          color: cv.$text-inverse;
+          font-size: vr.$size-4xl;
+          margin-bottom: vr.$spacing-8;
+          line-height: 1.5;
+
+          .gold-text {
+            color: cv.$primary;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: vr.$size-4xl;
+          }
+        }
+    }
+
+    // Opening Days Column
+    .opening-days-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        color: cv.$text-inverse;
+        font-size: vr.$size-3xl;
+        margin-bottom: vr.$spacing-12;
+        line-height: 1.5;
+      }
+    }
+
 }

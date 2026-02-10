@@ -1,73 +1,56 @@
-<footer class="pt-4 pb-0 mt-4">
-  <div class="row w-full mx-auto">
+<footer>
+  <div class="row">
     <div class="col-12 col-md-12 col-lg-4">
-      <div class="contentOne">
+      <div class="column-content">
         <h2>{{ "footer.contact_us" | translate }}</h2>
-        <ul class="p-0">
+        <ul class="contact-list">
           @for (item of contactDetailsInfo; track item) {
             <li>
               <a
                 [href]="item.href"
                 target="{{ item.id == 3 ? '_self' : '_blank' }}"
               >
-                <i class="{{ item.icon }} mr-2 greenColor"></i>
-                {{ lang == "en" ? item.titleEN : item.titleAR }}</a
-              >
+                <i class="{{ item.icon }}"></i>
+                <span>{{ lang == "en" ? item.titleEN : item.titleAR }}</span>
+              </a>
             </li>
           }
         </ul>
-        <span class="font-bold" style="color: white; font-size: 24px">
-          {{ "footer.follow_us" | translate }}
-        </span>
+        <h2 class="follow-us-heading">{{ "footer.follow_us" | translate }}</h2>
         <app-social-media-info [lang]="lang"></app-social-media-info>
       </div>
     </div>
+
     <div class="col-12 col-md-12 col-lg-4">
-      <div class="contentOne">
-        <div class="flex-design">
-          <h2 class="m-0 inline text-white">
-            <span class="gold-text">{{ "generic.gusto" | translate }}</span
-            >
-          </h2>
-          <img
-            alt="Gusto Logo"
-            loading="lazy"
-            src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/aad4d0110142211.5fe4b63868daa.jpg"
-            style="width: 80px; height: 60px"
-          />
+      <div class="column-content">
+        <div class="brand-header">
+          <h2 class="brand-name">{{'common.gusto' | translate }}🍔</h2>
         </div>
-        <p class="ml-md-4 mr-md-4 ml-sm-4">
+        <p class="brand-description">
           {{ "footer.gusto_delivers" | translate }}
         </p>
+        <div class="copyright-section">
+          <p>
+            {{ "footer.all_right" | translate }}
+          </p>
+          <p>
+            {{ "footer.distributed" | translate }}
+            <a class="gold-text" [href]="'https://wa.me/201554520650'" target="_blank">
+              Ezzat Yaser
+            </a>
+          </p>
+        </div>
       </div>
     </div>
+
     <div class="col-12 col-md-12 col-lg-4">
-      <div class="contentOne">
+      <div class="column-content">
         <h2>{{ "footer.opening_days" | translate }}</h2>
-        <ul class="p-0">
+        <ul class="opening-days-list">
           @for (item of openDays; track item) {
             <li>{{ lang == "en" ? item.openDaysEN : item.openDaysAR }}</li>
           }
         </ul>
-      </div>
-    </div>
-    <div class="col-12 col-md-12 lg:col-12">
-      <div class="contentTwo m-auto">
-        <p>
-          {{ "footer.all_right" | translate }}
-          <span class="gold-text font-bold">{{ "generic.gusto" | translate }}</span
-          >
-        </p>
-        <p>
-          {{ "footer.distributed" | translate }}
-          <span>
-            <span  class="cursor-pointer developed-by">
-              <a class="gold-text" [href]="'https://wa.me/201554520650'" target="_blank">
-                Ezzat Yaser
-              </a>
-              </span>
-          </span>
-        </p>
       </div>
     </div>
   </div>
