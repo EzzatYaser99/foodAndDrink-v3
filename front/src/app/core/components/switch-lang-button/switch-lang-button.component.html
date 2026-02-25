@@ -1,7 +1,7 @@
 <div [pTooltip]="'common.change_to_language' | translate" tooltipPosition="bottom"  class="lang"
      (click)="toggleLang()" (keydown)="toggleLang()">
   <span [class.bolder-text]="currentLang == 'en'">{{ toggleText | uppercase | translate }}</span>
-  <span class="mx-1"><i class="fa-solid fa-globe"></i></span>
+  <span><i class="fa-solid fa-globe"></i></span>
 </div>
 
 @if (isLoading) {

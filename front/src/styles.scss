@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@use "public/styles/variables" as vr;
+@use "public/styles/mixins" as mx;
+@use "public/styles/colors" as cv;
+
+body{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  line-height: 1.5;
+  overflow-y: auto;
+  overflow-x: hidden;
+  color: cv.$text-primary;
+}

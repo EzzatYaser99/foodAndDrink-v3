@@ -4,7 +4,7 @@
 
 .spinner-overlay {
   @include mx.position(fixed, 0, 0, 0, 0);
-  background: cv.$overlay-bg;
+  background: cv.$light-overlay-bg;
 
   .loading-spinner {
     @include mx.position(fixed, 0, 0, 10%, 0);
