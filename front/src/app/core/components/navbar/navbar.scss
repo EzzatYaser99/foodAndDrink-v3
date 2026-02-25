@@ -28,29 +28,36 @@ header {
       padding: vr.$spacing-12 vr.$spacing-16;
       border-radius: vr.$border-radius-lg;
       transition: all vr.$transition-base;
+      font-weight: 500;
+      gap: vr.$spacing-4;
 
       &:hover {
         background-color: cv.$hover-bg;
       }
 
       &.active {
-        color: cv.$primary;
         background-color: cv.$primary-tint;
 
         span:first-child {
-          color: cv.$primary;
+          color: cv.$orange;
         }
       }
 
       span:first-child {
         margin-right: vr.$spacing-8;
         font-size: vr.$size-3xl;
-        color: cv.$primary;
+        color: cv.$orange;
       }
 
       span:last-child {
         font-weight: 500;
         color: cv.$text-secondary;
+      }
+    }
+
+    @media (max-width: vr.$breakpoint-tablet) {
+      .p-menubar-root-list {
+        display: none;
       }
     }
   }
@@ -77,7 +84,7 @@ header {
     .brand-name {
       font-size: 1.75rem;
       font-weight: 700;
-      color: cv.$primary-dark;
+      color: cv.$primary;
       cursor: pointer;
       text-decoration: none;
       transition: color vr.$transition-base;
@@ -121,7 +128,7 @@ header {
         @include mx.circle(54px);
         position: relative;
         padding: vr.$spacing-4;
-        background: linear-gradient(135deg, cv.$accent-purple, cv.$primary);
+        background: linear-gradient(135deg, cv.$orange, cv.$primary);
         @include mx.display-flex(row, center, center);
 
         .profile-picture {
@@ -129,14 +136,6 @@ header {
           object-fit: cover;
           display: block;
         }
-      }
-    }
-
-    .logout-btn {
-      color: cv.$danger !important;
-
-      &:hover {
-        background-color: cv.$danger-hover-bg !important;
       }
     }
   }

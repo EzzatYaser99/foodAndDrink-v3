@@ -2,6 +2,11 @@
 @use "public/styles/mixins" as mx;
 @use "public/styles/colors" as cv;
 
+$colors: (
+  "primary": cv.$primary,
+  "orange": cv.$orange,
+);
+
 .sidebar {
   position: fixed;
   top: vr.$navbar-height;
@@ -55,38 +60,40 @@
         .menu-item {
           @include mx.display-flex(row, flex-start, center);
           padding: vr.$padding-12 vr.$spacing-24;
-          color: cv.$text-primary;
           text-decoration: none;
           transition: all vr.$transition-fast;
           cursor: pointer;
           gap: vr.$spacing-12;
-          border-left: vr.$spacing-4 solid transparent;
           border-right: none;
+          &:hover {
+            background-color: cv.$hover-bg;
+          }
 
           i {
             font-size: vr.$size-3xl;
-            color: cv.$primary;
             width: 20px;
             text-align: center;
             flex-shrink: 0;
+            @each $name, $color in $colors {
+              &.color-#{$name} {
+                color: $color
+              }
+            }
           }
 
           span {
             font-weight: 500;
             font-size: vr.$size-xxl;
+            color: cv.$text-primary;
           }
 
-          &:hover {
-            background-color: cv.$hover-bg;
-          }
 
           &.active {
             background-color: cv.$active-bg;
-            border-left-color: cv.$primary;
-            color: cv.$primary;
-
-            i {
-              color: cv.$primary;
+            @each $name, $color in $colors {
+              &.color-#{$name} {
+                border-left: vr.$spacing-4 solid $color;
+              }
             }
           }
         }
@@ -107,20 +114,15 @@
   }
 
   .menu-item {
-    flex-direction: row-reverse;
     border-left: none;
-    border-right: vr.$spacing-4 solid transparent;
-  }
 
-  .menu-item.active {
-    border-right-color: cv.$primary;
-    border-left-color: transparent;
-  }
-
-  .logout-item {
-    flex-direction: row-reverse;
+    &.active {
+      border-right: vr.$spacing-4 solid cv.$primary !important;
+      border-left: none !important;
+    }
   }
 }
+
 
 .sidebar-overlay {
   @include mx.position(fixed, 0, auto, auto, 0);
@@ -135,5 +137,11 @@
   &.visible {
     opacity: 1;
     visibility: visible;
+  }
+}
+::ng-deep {
+  .logout-btn {
+    width: 100% !important;
+    justify-content: start !important;
   }
 }

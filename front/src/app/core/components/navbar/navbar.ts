@@ -6,6 +6,7 @@ import { SwitchLangButtonComponent } from '../switch-lang-button/switch-lang-but
 import { TranslatePipe } from '@ngx-translate/core';
 import { Ripple } from 'primeng/ripple';
 import { AuthService } from '../../service/auth-service';
+import { SidebarItem } from '../../../api/types/sidebarItem.type';
 
 @Component({
   selector: 'app-navbar',
@@ -39,7 +40,7 @@ export class Navbar {
     this.toggleSidebar.emit();
   }
 
-  items: any[] = [
+  items: SidebarItem[] = [
     { label: 'navbar.pos', routerLink: 'pos', icon: 'fa-solid fa-clipboard' },
     { label: 'navbar.transaction', routerLink: 'transaction', icon: 'fa-solid fa-table-columns' },
     { label: 'navbar.booking', routerLink: 'booking', icon: 'fa-solid fa-clock' },
@@ -50,9 +51,4 @@ export class Navbar {
       icon: 'fa-solid fa-chart-bar',
     },
   ];
-
-  logOut() {
-    this._auth.logout();
-    this._router.navigate(['/login']);
-  }
 }

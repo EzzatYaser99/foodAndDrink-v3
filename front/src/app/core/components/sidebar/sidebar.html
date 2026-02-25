@@ -5,17 +5,19 @@
     </div>
     <ul class="menu-list">
       @for (item of sidebarItems; track item.routerLink) {
+        @if (!item.mobileOnly || (item.mobileOnly && isMobileView)){
         <li>
           <a
             pRipple
-            class="menu-item"
+            class="menu-item color-{{ item.color }} "
             [routerLink]="'/main/' + item.routerLink"
             routerLinkActive="active"
           >
-            <i [class]="item.icon"></i>
+            <i class="color-{{ item.color }} {{item.icon}}"></i>
             <span>{{ item.label | translate }}</span>
           </a>
         </li>
+        }
       }
       <li>
         <p-button icon="pi pi-sign-out" [label]="'sidebar.logout' | translate" (onClick)="logOut()" severity="danger" [text]="true" styleClass="logout-btn"/>
