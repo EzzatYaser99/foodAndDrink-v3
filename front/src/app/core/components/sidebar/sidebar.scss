@@ -102,28 +102,6 @@ $colors: (
   }
 }
 
-// RTL (Arabic) – sidebar on right, slide from right, icon next to text
-:host-context([dir="rtl"]) .sidebar {
-  left: auto !important;
-  right: calc(0px - #{vr.$sidebar-width});
-  box-shadow: -(vr.$spacing-4) 0 vr.$spacing-8 cv.$shadow-light;
-
-  &.open {
-    left: auto !important;
-    right: 0 !important;
-  }
-
-  .menu-item {
-    border-left: none;
-
-    &.active {
-      border-right: vr.$spacing-4 solid cv.$primary !important;
-      border-left: none !important;
-    }
-  }
-}
-
-
 .sidebar-overlay {
   @include mx.position(fixed, 0, auto, auto, 0);
   width: 100%;
@@ -139,9 +117,36 @@ $colors: (
     visibility: visible;
   }
 }
+
 ::ng-deep {
   .logout-btn {
     width: 100% !important;
     justify-content: start !important;
   }
 }
+
+// RTL (Arabic) – sidebar on right, slide from right, icon next to text
+:host-context([dir="rtl"]) .sidebar {
+  left: auto !important;
+  right: calc(0px - #{vr.$sidebar-width});
+  box-shadow: -(vr.$spacing-4) 0 vr.$spacing-8 cv.$shadow-light;
+
+  &.open {
+    left: auto !important;
+    right: 0 !important;
+  }
+
+  .menu-item {
+    border-left: none;
+
+    &.active {
+      border-left: none !important;
+      @each $name, $color in $colors {
+        &.color-#{$name} {
+          border-right: vr.$spacing-4 solid $color  !important;;
+        }
+      }
+    }
+  }
+}
+
